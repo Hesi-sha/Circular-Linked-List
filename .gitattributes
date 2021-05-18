@@ -105,3 +105,26 @@ void double_clist::insert_begin()
         cout<<"Element inserted"<<endl;
     }
 }
+void double_clist::insert_last()
+{
+    int value;
+    cout<<endl<<"Enter the element to be inserted: ";
+    cin>>value;
+    struct node *temp;
+    temp = create_node(value);
+    if (start == last && start == nullptr)
+    {
+        cout<<"Element inserted in empty list"<<endl;
+        start = last = temp;
+        start->next = last->next = nullptr;
+        start->prev = last->prev = nullptr;
+    }
+    else
+    {
+        last->next = temp;
+        temp->prev = last;
+        last = temp;
+        start->prev = last;
+        last->next = start;
+    }
+}
