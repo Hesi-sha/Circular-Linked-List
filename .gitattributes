@@ -70,3 +70,14 @@ int main()
     }
     return 0;
 }
+
+node* double_clist::create_node(int value)
+{
+    counter++;
+    struct node *temp;
+    temp = new(struct node);
+    temp->info = value;
+    temp->next = nullptr;
+    temp->prev = nullptr;
+    return temp;
+}
