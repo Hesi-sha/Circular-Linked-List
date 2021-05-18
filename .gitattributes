@@ -81,3 +81,27 @@ node* double_clist::create_node(int value)
     temp->prev = nullptr;
     return temp;
 }
+void double_clist::insert_begin()
+{
+    int value;
+    cout<<endl<<"Enter the element to be inserted: ";
+    cin>>value;
+    struct node *temp;
+    temp = create_node(value);
+    if (start == last && start == nullptr)
+    {
+        cout<<"Element inserted in empty list"<<endl;
+        start = last = temp;
+        start->next = last->next = nullptr;
+        start->prev = last->prev = nullptr;
+    }
+    else
+    {
+        temp->next = start;
+        start->prev = temp;
+        start = temp;
+        start->prev = last;
+        last->next = start;
+        cout<<"Element inserted"<<endl;
+    }
+}
