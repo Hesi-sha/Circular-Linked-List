@@ -128,3 +128,53 @@ void double_clist::insert_last()
         last->next = start;
     }
 }
+
+void double_clist::insert_pos()
+{
+    int value, pos, i;
+    cout<<endl<<"Enter the element to be inserted: ";
+    cin>>value;
+    cout<<endl<<"Enter the postion of element inserted: ";
+    cin>>pos;
+    struct node *temp, *s, *ptr;
+    temp = create_node(value);
+    if (start == last && start == nullptr)
+    {
+        if (pos == 1)
+        {
+            start = last = temp;
+            start->next = last->next = nullptr;
+            start->prev = last->prev = nullptr;
+        }
+        else
+        {
+            cout<<"Position out of range"<<endl;
+            counter--;
+            return;
+        }
+    }
+    else
+    {
+        if (counter < pos)
+        {
+            cout<<"Position out of range"<<endl;
+            counter--;
+            return;
+        }
+        s = start;
+        for (i = 1;i <= counter;i++)
+        {
+            ptr = s;
+            s = s->next;
+            if (i == pos - 1)
+            {
+                ptr->next = temp;
+                temp->prev = ptr;
+                temp->next = s;
+                s->prev = temp;
+                cout<<"Element inserted"<<endl;
+                break;
+            }
+        }
+    }
+}
