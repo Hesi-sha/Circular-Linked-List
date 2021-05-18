@@ -178,3 +178,46 @@ void double_clist::insert_pos()
         }
     }
 }
+
+void double_clist::delete_pos()
+{
+    int pos, i;
+    node *ptr, *s;
+    if (start == last && start == nullptr)
+    {
+        cout<<"List is empty, nothing to delete"<<endl;
+        return;
+    }
+    cout<<endl<<"Enter the postion of element to be deleted: ";
+    cin>>pos;
+    if (counter < pos)
+    {
+        cout<<"Position out of range"<<endl;
+        return;
+    }
+    s = start;
+    if(pos == 1)
+    {
+        counter--;
+        last->next = s->next;
+        s->next->prev = last;
+        start = s->next;
+        free(s);
+        cout<<"Element Deleted"<<endl;
+        return;
+    }
+    for (i = 0;i < pos - 1;i++ )
+    {
+        s = s->next;
+        ptr = s->prev;
+    }
+    ptr->next = s->next;
+    s->next->prev = ptr;
+    if (pos == counter)
+    {
+        last = ptr;
+    }
+    counter--;
+    free(s);
+    cout<<"Element Deleted"<<endl;
+}
