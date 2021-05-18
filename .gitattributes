@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+
+class node
+{
+public:
+     int info;
+     node *next;
+     node *prev;
+}*start, *last;
+int counter = 0;
+
+class double_clist
+{
+public:
+    node *create_node(int);
+    void insert_begin();
+    void insert_last();
+    void insert_pos();
+    void delete_pos();
+    void display();
+
+    double_clist()
+    {
+        start = nullptr;
+        last = nullptr;
+    }
+};
