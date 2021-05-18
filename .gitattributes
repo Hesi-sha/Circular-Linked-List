@@ -221,3 +221,20 @@ void double_clist::delete_pos()
     free(s);
     cout<<"Element Deleted"<<endl;
 }
+void double_clist::display()
+{
+    int i;
+    struct node *s;
+    if (start == last && start == nullptr)
+    {
+        cout<<"The List is empty, nothing to display"<<endl;
+        return;
+    }
+    s = start;
+    for (i = 0;i < counter-1;i++)
+    {
+        cout<<s->info<<" ";
+        s = s->next;
+    }
+    cout<<s->info<<endl;
+}
