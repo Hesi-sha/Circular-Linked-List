@@ -27,3 +27,46 @@ public:
         last = nullptr;
     }
 };
+
+int main()
+{
+    int choice;
+    double_clist cdl;
+    while (1)
+    {
+        cout<<"\n-------------------------------"<<endl;
+        cout<<"Operations on Doubly Circular linked list"<<endl;
+        cout<<"\n-------------------------------"<<endl;
+        cout<<"1.Insert at Beginning"<<endl;
+        cout<<"2.Insert at Last"<<endl;
+        cout<<"3.Insert at Position"<<endl;
+        cout<<"4.Delete at Position"<<endl;
+        cout<<"5.Display List"<<endl;
+        cout<<"0.Exit"<<endl;
+        cout<<"Enter your choice : ";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1:
+                cdl.insert_begin();
+                break;
+            case 2:
+                cdl.insert_last();
+                break;
+            case 3:
+                cdl.insert_pos();
+                break;
+            case 4:
+                cdl.delete_pos();
+                break;
+            case 5:
+                cdl.display();
+                break;
+            case 0:
+                exit(1);
+            default:
+                cout<<"Wrong choice"<<endl;
+        }
+    }
+    return 0;
+}
